@@ -1,0 +1,28 @@
+{
+    "human": {
+        "name": "Human",
+        "subjects": [
+            "9030xxxx"
+        ]
+    },
+    "language": {
+        "name": "Language",
+        "subjects": [
+            "9002xxxx",
+            "9020xxxx"
+        ]
+    },
+    "scimath": {
+        "name": "Sci-Math",
+        "subjects": [
+            "9001xxxx",
+            "9010xxxx"
+        ]
+    },
+    "social": {
+        "name": "Social",
+        "subjects": [
+            "9040xxxx"
+        ]
+    }
+}

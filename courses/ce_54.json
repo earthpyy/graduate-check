@@ -6,137 +6,44 @@
         "01076249", "01076250", "01076254", "01076256", "01076262",
         "01076263", "01076253", "01076258"
     ],
-    "selective": {
-        "project": {
+    "selective": [
+        {
+            "group": "project",
+            "name": "Project",
             "credits": 6,
             "subjects": [
-                {
-                    "id": "01076311",
-                    "credit": 3
-                },
-                {
-                    "id": "01076312",
-                    "credit": 3
-                },
-                {
-                    "id": "01076313",
-                    "credit": 6
-                },
-                {
-                    "id": "01076314",
-                    "credit": 6
-                }
+                "01076311",
+                "01076312",
+                "01076313",
+                "01076314"
             ]
         },
-        "dept": {
+        {
+            "group": "dept",
+            "name": "Computer Department",
             "credits": 18,
             "subjects": [
-                {
-                    "id": "010764xx",
-                    "credit": 3
-                },
-                {
-                    "id": "0107656x",
-                    "credit": 3
-                },
-                {
-                    "id": "01076570",
-                    "credit": 3
-                },
-                {
-                    "id": "01076471",
-                    "credit": 3
-                },
-                {
-                    "id": "01076472",
-                    "credit": 1
-                },
-                {
-                    "id": "01076473",
-                    "credit": 3
-                },
-                {
-                    "id": "01076474",
-                    "credit": 3
-                },
-                {
-                    "id": "01076475",
-                    "credit": 3
-                },
-                {
-                    "id": "01076476",
-                    "credit": 3
-                },
-                {
-                    "id": "01076477",
-                    "credit": 3
-                },
-                {
-                    "id": "01076478",
-                    "credit": 3
-                },
-                {
-                    "id": "01076479",
-                    "credit": 3
-                },
-                {
-                    "id": "0107648x",
-                    "credit": 3
-                },
-                {
-                    "id": "0107649x",
-                    "credit": 3
-                },
-                {
-                    "id": "010766xx",
-                    "credit": 3
-                }
+                "010764xx",
+                "010765xx",
+                "010766xx"
             ]
         },
-        "language": {
-            "credits": 12,
-            "subjects": [
-                {
-                    "id": "9002xxxx",
-                    "credit": 3
-                },
-                {
-                    "id": "9020xxxx",
-                    "credit": 3
-                }
-            ]
+        {
+            "group": "language",
+            "credits": 12
         },
-        "human": {
-            "credits": 6,
-            "subjects": [
-                {
-                    "id": "9030xxxx",
-                    "credit": 3
-                }
-            ]
+        {
+            "group": "human",
+            "credits": 6
         },
-        "social": {
-            "credits": 6,
-            "subjects": [
-                {
-                    "id": "9040xxxx",
-                    "credit": 3
-                }
-            ]
+        {
+            "group": "social",
+            "credits": 6
         },
-        "scimath": {
-            "credits": 6,
-            "subjects": [
-                {
-                    "id": "9001xxxx",
-                    "credit": 3
-                },
-                {
-                    "id": "9010xxxx",
-                    "credit": 3
-                }
-            ]
+        {
+            "group": "scimath",
+            "credits": 6
         }
-    },
+    ],
     "free": 6
 }
