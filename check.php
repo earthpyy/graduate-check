@@ -56,15 +56,15 @@ for ($i = 0; $i < count($matches[0]); $i++) {
     $subjects[$i]['matched'] = false;
 }
 
-// echo "<pre>";
+// echo "&nbsp;&nbsp;&nbsp;&nbsp;";
 // print_r($subjects);
-// echo "</pre>";
+// echo "";
 
 $courses = json_decode(file_get_contents('courses/ce_54.json'), true);
 $selectives = json_decode(file_get_contents('courses/selective.json'), true);
 
 // required subjects
-echo '=== REQUIRED SUBJECTS ===<br>';
+echo '<b>=== REQUIRED SUBJECTS ===</b><br>';
 foreach ($courses['required'] as $required) {
     $found = false;
     foreach ($subjects as $i => $subject) {
@@ -88,7 +88,7 @@ foreach ($courses['required'] as $required) {
 echo '<br>';
 
 // selective subjects
-echo '=== SELECTIVE SUBJECTS ===<br>';
+echo '<b>=== SELECTIVE SUBJECTS ===</b><br>';
 foreach ($subjects as $i => $subject) {
     if ($subject['matched']) {
         continue;
@@ -144,8 +144,23 @@ foreach ($subjects as $i => $subject) {
     }
 }
 
+foreach ($courses['selective'] as $group) {
+    if (array_key_exists('name', $group)) {
+        $name = $group['name'];
+    } else {
+        $name = $selectives[$group['group']]['name'];
+    }
+    echo '<b>' . $name . '</b><br>';
+    echo '&nbsp;&nbsp;&nbsp;&nbsp;Total credits: ' . $group['credits'] . '<br>';
+    echo '&nbsp;&nbsp;&nbsp;&nbsp;Credits passed: ' . ($credits[$group['group']]['passed'] + 0) . '<br>';
+    echo '&nbsp;&nbsp;&nbsp;&nbsp;Credits registered this semester: ' . ($credits[$group['group']]['registered'] + 0) . '<br>';
+
+    $left = $group['credits'] - $credits[$group['group']]['passed'] - $credits[$group['group']]['registered'];
+    echo '&nbsp;&nbsp;&nbsp;&nbsp;Credits left: ' . ($left == 0 ? '<font color=green>0</font>' : '<font color=red>' . $left . '</font>') . '<br><br>';
+}
+
 // free subjects
-echo '=== FREE SUBJECTS ===<br>';
+echo '<b>=== FREE SUBJECTS ===</b><br>';
 foreach ($subjects as $i => $subject) {
     if (!$subject['matched'] && isRegistered($subject['grade'])) {
         $subjects[$i]['matched'] = true;
@@ -158,6 +173,9 @@ foreach ($subjects as $i => $subject) {
     }
 }
 
-echo "<pre>";
-print_r($credits);
-echo "</pre>";
+echo '&nbsp;&nbsp;&nbsp;&nbsp;Total credits: ' . $courses['free'] . '<br>';
+echo '&nbsp;&nbsp;&nbsp;&nbsp;Credits passed: ' . ($credits['free']['passed'] + 0) . '<br>';
+echo '&nbsp;&nbsp;&nbsp;&nbsp;Credits registered this semester: ' . ($credits['free']['registered'] + 0) . '<br>';
+
+$left = $courses['free'] - $credits['free']['passed'] - $credits['free']['registered'];
+echo '&nbsp;&nbsp;&nbsp;&nbsp;Credits left: ' . ($left == 0 ? '<font color=green>0</font>' : '<font color=red>' . $left . '</font>') . '<br><br>';
